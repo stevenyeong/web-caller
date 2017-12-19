@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InvestmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FinancialHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockCompanyId" Type="int" Nullable="false" />
+          <Property Name="AbsPeriod" Type="nvarchar" MaxLength="10" />
+          <Property Name="AssetTurns" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="BasicEpsIncl" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="AvgDaysInventory" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="AvgDaysPayable" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CashConversion" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CashFinancing" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CashInvesting" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CashOperations" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CommonEquity1YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CommonStock" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CurrentRatio" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="DividendsPerShare" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="Ebitda" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="Ebitda1YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="EbitdaInterest" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="EbitdaMargin" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="Eps" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="Eps1YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="FilingCurrency" Type="nvarchar" MaxLength="10" />
+          <Property Name="FilingDate" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="GrossMargin" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="GrossProfit" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="LongTermDebt" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="MinorityInterest" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="NetChange" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncome" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncome1YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncomeMargin" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="NetPpe" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="PayoutRatio" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="PeriodDate" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="PeriodEndDate" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="QuickRatio" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="RetainedEarnings" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnAssets" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnCapital" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnEquity" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalAssets" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalCurrentAssets" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalCurrentLiabily" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalDebtEquity" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalEquity" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalLiability" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRevenue" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev1YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev3YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev5YrAnnGrowth" Type="decimal" Precision="20" Scale="6" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RequestLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestType" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RequestBody" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResponseData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ProcessedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StockCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TickerCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IndustryGroup" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="LatsUpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="InvestmentModelStoreContainer">
+          <EntitySet Name="FinancialHistory" EntityType="Self.FinancialHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestLog" EntityType="Self.RequestLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockCompany" EntityType="Self.StockCompany" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InvestmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RequestLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestBody" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResponseData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ProcessedOn" Type="DateTime" Precision="3" />
+          <Property Name="RequestType" Type="Int32" DefaultValue="0" />
+        </EntityType>
+        <EntityContainer Name="InvestmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RequestLogs" EntityType="Self.RequestLog" />
+          <EntitySet Name="StockCompanies" EntityType="InvestmentModel.StockCompany" />
+          <EntitySet Name="FinancialHistories" EntityType="InvestmentModel.FinancialHistory" />
+        </EntityContainer>
+        <EntityType Name="StockCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TickerCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IndustryGroup" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="LatsUpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FinancialHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StockCompanyId" Type="Int32" Nullable="false" />
+          <Property Name="AbsPeriod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AssetTurns" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="BasicEpsIncl" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="AvgDaysInventory" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="AvgDaysPayable" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CashConversion" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CashFinancing" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CashInvesting" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CashOperations" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CommonEquity1YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CommonStock" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CurrentRatio" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="DividendsPerShare" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="Ebitda" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="Ebitda1YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="EbitdaInterest" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="EbitdaMargin" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="Eps" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="Eps1YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="FilingCurrency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FilingDate" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="GrossMargin" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="GrossProfit" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="LongTermDebt" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="MinorityInterest" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="NetChange" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncome" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncome1YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="NetIncomeMargin" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="NetPpe" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="PayoutRatio" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="PeriodDate" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="PeriodEndDate" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="QuickRatio" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="RetainedEarnings" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnAssets" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnCapital" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="ReturnEquity" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalAssets" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalCurrentAssets" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalCurrentLiabily" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalDebtEquity" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalEquity" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalLiability" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRevenue" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev1YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev3YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="TotalRev5YrAnnGrowth" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InvestmentModelStoreContainer" CdmEntityContainer="InvestmentEntities">
+          <EntitySetMapping Name="RequestLogs">
+            <EntityTypeMapping TypeName="InvestmentModel.RequestLog">
+              <MappingFragment StoreEntitySet="RequestLog">
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="ProcessedOn" ColumnName="ProcessedOn" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="RequestBody" ColumnName="RequestBody" />
+                <ScalarProperty Name="ResponseData" ColumnName="ResponseData" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockCompanies">
+            <EntityTypeMapping TypeName="InvestmentModel.StockCompany">
+              <MappingFragment StoreEntitySet="StockCompany">
+                <ScalarProperty Name="LatsUpdatedOn" ColumnName="LatsUpdatedOn" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IndustryGroup" ColumnName="IndustryGroup" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="TickerCode" ColumnName="TickerCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialHistories">
+            <EntityTypeMapping TypeName="InvestmentModel.FinancialHistory">
+              <MappingFragment StoreEntitySet="FinancialHistory">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="TotalRev5YrAnnGrowth" ColumnName="TotalRev5YrAnnGrowth" />
+                <ScalarProperty Name="TotalRev3YrAnnGrowth" ColumnName="TotalRev3YrAnnGrowth" />
+                <ScalarProperty Name="TotalRev1YrAnnGrowth" ColumnName="TotalRev1YrAnnGrowth" />
+                <ScalarProperty Name="TotalRevenue" ColumnName="TotalRevenue" />
+                <ScalarProperty Name="TotalLiability" ColumnName="TotalLiability" />
+                <ScalarProperty Name="TotalEquity" ColumnName="TotalEquity" />
+                <ScalarProperty Name="TotalDebtEquity" ColumnName="TotalDebtEquity" />
+                <ScalarProperty Name="TotalCurrentLiabily" ColumnName="TotalCurrentLiabily" />
+                <ScalarProperty Name="TotalCurrentAssets" ColumnName="TotalCurrentAssets" />
+                <ScalarProperty Name="TotalAssets" ColumnName="TotalAssets" />
+                <ScalarProperty Name="ReturnEquity" ColumnName="ReturnEquity" />
+                <ScalarProperty Name="ReturnCapital" ColumnName="ReturnCapital" />
+                <ScalarProperty Name="ReturnAssets" ColumnName="ReturnAssets" />
+                <ScalarProperty Name="RetainedEarnings" ColumnName="RetainedEarnings" />
+                <ScalarProperty Name="QuickRatio" ColumnName="QuickRatio" />
+                <ScalarProperty Name="PeriodEndDate" ColumnName="PeriodEndDate" />
+                <ScalarProperty Name="PeriodDate" ColumnName="PeriodDate" />
+                <ScalarProperty Name="PayoutRatio" ColumnName="PayoutRatio" />
+                <ScalarProperty Name="NetPpe" ColumnName="NetPpe" />
+                <ScalarProperty Name="NetIncomeMargin" ColumnName="NetIncomeMargin" />
+                <ScalarProperty Name="NetIncome1YrAnnGrowth" ColumnName="NetIncome1YrAnnGrowth" />
+                <ScalarProperty Name="NetIncome" ColumnName="NetIncome" />
+                <ScalarProperty Name="NetChange" ColumnName="NetChange" />
+                <ScalarProperty Name="MinorityInterest" ColumnName="MinorityInterest" />
+                <ScalarProperty Name="LongTermDebt" ColumnName="LongTermDebt" />
+                <ScalarProperty Name="GrossProfit" ColumnName="GrossProfit" />
+                <ScalarProperty Name="GrossMargin" ColumnName="GrossMargin" />
+                <ScalarProperty Name="FilingDate" ColumnName="FilingDate" />
+                <ScalarProperty Name="FilingCurrency" ColumnName="FilingCurrency" />
+                <ScalarProperty Name="Eps1YrAnnGrowth" ColumnName="Eps1YrAnnGrowth" />
+                <ScalarProperty Name="Eps" ColumnName="Eps" />
+                <ScalarProperty Name="EbitdaMargin" ColumnName="EbitdaMargin" />
+                <ScalarProperty Name="EbitdaInterest" ColumnName="EbitdaInterest" />
+                <ScalarProperty Name="Ebitda1YrAnnGrowth" ColumnName="Ebitda1YrAnnGrowth" />
+                <ScalarProperty Name="Ebitda" ColumnName="Ebitda" />
+                <ScalarProperty Name="DividendsPerShare" ColumnName="DividendsPerShare" />
+                <ScalarProperty Name="CurrentRatio" ColumnName="CurrentRatio" />
+                <ScalarProperty Name="CommonStock" ColumnName="CommonStock" />
+                <ScalarProperty Name="CommonEquity1YrAnnGrowth" ColumnName="CommonEquity1YrAnnGrowth" />
+                <ScalarProperty Name="CashOperations" ColumnName="CashOperations" />
+                <ScalarProperty Name="CashInvesting" ColumnName="CashInvesting" />
+                <ScalarProperty Name="CashFinancing" ColumnName="CashFinancing" />
+                <ScalarProperty Name="CashConversion" ColumnName="CashConversion" />
+                <ScalarProperty Name="AvgDaysPayable" ColumnName="AvgDaysPayable" />
+                <ScalarProperty Name="AvgDaysInventory" ColumnName="AvgDaysInventory" />
+                <ScalarProperty Name="BasicEpsIncl" ColumnName="BasicEpsIncl" />
+                <ScalarProperty Name="AssetTurns" ColumnName="AssetTurns" />
+                <ScalarProperty Name="AbsPeriod" ColumnName="AbsPeriod" />
+                <ScalarProperty Name="StockCompanyId" ColumnName="StockCompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
